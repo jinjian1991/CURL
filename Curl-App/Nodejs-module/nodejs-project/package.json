@@ -1,0 +1,10 @@
+{
+    "name": "curl-server",
+    "version": "0.0.1",
+    "description": "",
+    "main": "main.js",
+    "dependencies": {
+        "node-fetch": "2.6.0",
+        "express": "4.17.1"
+    }
+}

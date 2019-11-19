@@ -1,0 +1,9 @@
+{
+    "name": "@sensetime/sensestudy-agent-ipad-wrapper",
+    "version": "0.0.1",
+    "description": "a simple wrapper to start agent for mobile",
+    "main": "main.js",
+    "dependencies": {
+        "@sensetime/sensestudy-agent-mobile": "0.8.7"
+    }
+}
