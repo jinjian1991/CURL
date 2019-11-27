@@ -77,9 +77,10 @@ extension UITableViewCell {
             
             bottomBorder.frame = CGRect(x: 16.0,
                                         y: 0,
-                                        width: self.contentView.frame.size.width - 16,
+                                        width: self.contentView.frame.size.width + 5 /*- 16*/,
                                         height: 0.2)
             bottomBorder.backgroundColor = UIColor(white: 0.8, alpha: 1.0).cgColor
+//            bottomBorder.backgroundColor = UIColor.white.cgColor
             self.contentView.layer.addSublayer(bottomBorder)
         }
     }
@@ -96,6 +97,12 @@ class HomeController: BaseViewController, UITextViewDelegate, UIScrollViewDelega
 
         setupNavigation()
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationItem.title = "CURL"
     }
     
     // MARK: IBAction
@@ -162,7 +169,7 @@ class HomeController: BaseViewController, UITextViewDelegate, UIScrollViewDelega
         cell?.accessoryType = .disclosureIndicator
         
         
-        cell?.backgroundColor = .white
+        
         
 //        cell?.textLabel?.text = "Pull Requests"
 //        cell?.detailTextLabel?.text = "Post Get Delete"
@@ -186,6 +193,8 @@ class HomeController: BaseViewController, UITextViewDelegate, UIScrollViewDelega
         let bgColorView = UIView()
         bgColorView.backgroundColor = .lightGray
         cell?.selectedBackgroundView = bgColorView
+        
+        cell?.backgroundColor = .white
  
         return cell!
     }
@@ -204,6 +213,7 @@ class HomeController: BaseViewController, UITextViewDelegate, UIScrollViewDelega
             default:
                 requestVC.navigationTitle = ""
         }
+        
         navigationController?.pushViewController(requestVC, animated: true)
     }
     
@@ -235,6 +245,7 @@ class HomeController: BaseViewController, UITextViewDelegate, UIScrollViewDelega
         subTitleLabel.textColor = .black
         headerView.addSubview(subTitleLabel)
         if section == 2 {
+            // TODO: To add dynamic datas
             subTitleLabel.text = "No Datas"
         }
         
@@ -251,12 +262,12 @@ class HomeController: BaseViewController, UITextViewDelegate, UIScrollViewDelega
         var rows = 0
         
         switch section {
-        case 0:
-            rows = 1
-        case 1:
-            rows = 4
-        default:
-            rows = 0
+            case 0:
+                rows = 1
+            case 1:
+                rows = 4
+            default:
+                rows = 0
         }
         
         return rows
@@ -269,8 +280,9 @@ class HomeController: BaseViewController, UITextViewDelegate, UIScrollViewDelega
     // MARK: UI
     
     private func setupNavigation() {
-        b_setNavigationBarTitle("CURL")
         
+        
+        /*
         let scanItem = UIBarButtonItem.init(image: UIImage.init(systemName: "viewfinder.circle"),
                                             style: .plain,
                                             target: self,
@@ -284,6 +296,7 @@ class HomeController: BaseViewController, UITextViewDelegate, UIScrollViewDelega
         scanItem.tag = 0
         runItem.tag  = 1
         navigationItem.rightBarButtonItems = [runItem, scanItem]
+        */
     }
     
     private func setupUI() {

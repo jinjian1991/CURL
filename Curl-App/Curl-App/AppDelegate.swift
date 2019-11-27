@@ -19,7 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
 //        self.window?.rootViewController = MainTabController()
         let homeVC = HomeController()
+//        let homeVC = TestController()
         let homeNav = UINavigationController.init(rootViewController: homeVC)
+//        homeNav.navigationBar.tintColor = .black
+//        UINavigationBar.appearance().tintColor = .black
         self.window?.rootViewController = homeNav
         self.window?.makeKeyAndVisible()
         
